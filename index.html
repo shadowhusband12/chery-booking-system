@@ -1096,7 +1096,7 @@
             <div class="logo">Chery Arta</div>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#home" class="nav-link" onclick="goToHome()">Home</a></li>
                     <li><a href="#facilities" class="nav-link">Fasilitas</a></li>
                     <li><a href="#booking" class="nav-link">Book Service</a></li>
                     <li><a class="nav-link" onclick="showCekService()">Cek Service</a></li>
@@ -1132,50 +1132,50 @@
                     <div class="facility-card" onclick="openImagePreview(0)">
                         <img src="https://raw.githubusercontent.com/AdminCheryarta01/chery-booking-service/refs/heads/main/img/frontside.webp" alt="Ruang Tunggu" class="facility-image">
                         <div class="facility-caption">
-                            <h3>Ruang Tunggu Premium</h3>
-                            <p>Ruang tunggu eksklusif dengan sofa nyaman dan mural pemandangan pegunungan</p>
+                            <h3>Customer Service Center</h3>
+                            <p>Meja pelayanan customer service yang profesional</p>
                         </div>
                     </div>
                     <div class="facility-card" onclick="openImagePreview(1)">
                         <img src="https://raw.githubusercontent.com/AdminCheryarta01/chery-booking-service/refs/heads/main/img/IMG-20250919-WA0014.jpg" alt="Ruang Meeting" class="facility-image">
                         <div class="facility-caption">
-                            <h3>Ruang Konsultasi</h3>
-                            <p>Ruang meeting modern untuk diskusi dan konsultasi mengenai perawatan kendaraan</p>
+                            <h3>Showroom Chery</h3>
+                            <p>Showroom eksklusif menampilkan koleksi lengkap kendaraan Chery</p>
                         </div>
                     </div>
                     <div class="facility-card" onclick="openImagePreview(2)">
                         <img src="https://raw.githubusercontent.com/AdminCheryarta01/chery-booking-service/refs/heads/main/img/IMG-20250919-WA0015.jpg" alt="Area Diskusi" class="facility-image">
                         <div class="facility-caption">
-                            <h3>Area Diskusi Santai</h3>
-                            <p>Area santai dengan meja bulat yang nyaman untuk berdiskusi dengan keluarga</p>
+                            <h3>Ruang Tunggu Premium</h3>
+                            <p>Ruang tunggu eksklusif dengan sofa nyaman dan mural pemandangan pegunungan</p>
                         </div>
                     </div>
                     <div class="facility-card" onclick="openImagePreview(3)">
                         <img src="https://raw.githubusercontent.com/AdminCheryarta01/chery-booking-service/refs/heads/main/img/IMG-20250919-WA0019.jpg" alt="Customer Service" class="facility-image">
                         <div class="facility-caption">
-                            <h3>Customer Service Center</h3>
-                            <p>Meja pelayanan customer service yang profesional</p>
+                            <h3>Kids Play Area</h3>
+                            <p>Area bermain anak yang aman dan menyenangkan</p>
                         </div>
                     </div>
                     <div class="facility-card" onclick="openImagePreview(4)">
                         <img src="https://raw.githubusercontent.com/AdminCheryarta01/chery-booking-service/refs/heads/main/img/IMG-20250919-WA0018.jpg" alt="Playground" class="facility-image">
                         <div class="facility-caption">
-                            <h3>Kids Play Area</h3>
-                            <p>Area bermain anak yang aman dan menyenangkan</p>
+                            <h3>Workshop Modern</h3>
+                            <p>Bengkel dengan teknologi terdepan dan peralatan canggih</p>
                         </div>
                     </div>
                     <div class="facility-card" onclick="openImagePreview(5)">
                         <img src="https://raw.githubusercontent.com/AdminCheryarta01/chery-booking-service/refs/heads/main/img/fasilitas2.webp" alt="Workshop" class="facility-image">
                         <div class="facility-caption">
-                            <h3>Workshop Modern</h3>
-                            <p>Bengkel dengan teknologi terdepan dan peralatan canggih</p>
+                            <h3>Area Diskusi Santai</h3>
+                            <p>Area santai dengan meja bulat yang nyaman untuk berdiskusi dengan keluarga</p>
                         </div>
                     </div>
                     <div class="facility-card" onclick="openImagePreview(6)">
                         <img src="https://raw.githubusercontent.com/AdminCheryarta01/chery-booking-service/refs/heads/main/img/fasilitas3.webp" alt="Showroom" class="facility-image">
                         <div class="facility-caption">
-                            <h3>Showroom Chery</h3>
-                            <p>Showroom eksklusif menampilkan koleksi lengkap kendaraan Chery</p>
+                            <h3>Ruang Konsultasi</h3>
+                            <p>Ruang meeting modern untuk diskusi dan konsultasi mengenai perawatan kendaraan</p>
                         </div>
                     </div>
                     <div class="facility-card" onclick="openImagePreview(7)">
@@ -1219,7 +1219,7 @@
                             <span class="separator">-</span>
                             <input type="text" id="plat_angka" maxlength="4" placeholder="1234" class="plat-input plat-part-b" oninput="handlePlatInput(this, 'numbers')" required>
                             <span class="separator">-</span>
-                            <input type="text" id="plat_huruf" maxlength="3" placeholder="ABC" class="plat-input plat-part-c" oninput="handlePlatInput(this, 'letters')" required>
+                            <input type="text" id="plat_huruf" maxlength="3" placeholder="CD" class="plat-input plat-part-c" oninput="handlePlatInput(this, 'letters')" required>
                         </div>
                     </div>
 
@@ -1402,6 +1402,10 @@
                     <i class="fas fa-arrow-left"></i>
                     Kembali
                 </button>
+                <button class="service-btn" onclick="refreshCekService()" style="background: #3b82f6; color: white;">
+                    <i class="fas fa-sync-alt"></i>
+                    Refresh
+                </button>
             </div>
             
             <div style="overflow-x: auto;">
@@ -1433,9 +1437,56 @@
                         <i class="fas fa-download"></i>
                         Export Excel
                     </button>
+                    <button class="admin-btn" onclick="exportToGoogleSheets()" style="background: #0f9d58; color: white;">
+                        <i class="fab fa-google"></i>
+                        Export to Sheets
+                    </button>
+                    <button class="admin-btn" onclick="refreshBookings()" style="background: #3b82f6; color: white;">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh
+                    </button>
                     <button class="admin-btn logout-btn" onclick="adminLogout()">
                         <i class="fas fa-sign-out-alt"></i>
                         Logout
+                    </button>
+                </div>
+            </div>
+
+            <div class="admin-filters" style="background: white; padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--chery-dark);">
+                    <i class="fas fa-filter"></i> Filter Data
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div>
+                        <label style="display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; color: #64748b;">Cari Nama/Plat</label>
+                        <input type="text" id="filterSearch" placeholder="Nama atau Plat Nomor" style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem;" oninput="applyFilters()">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; color: #64748b;">Status</label>
+                        <select id="filterStatus" style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem;" onchange="applyFilters()">
+                            <option value="">Semua Status</option>
+                            <option value="Successful">Successful</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Cancelled">Cancelled</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; color: #64748b;">Tanggal Dari</label>
+                        <input type="date" id="filterDateFrom" style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem;" onchange="applyFilters()">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; color: #64748b;">Tanggal Sampai</label>
+                        <input type="date" id="filterDateTo" style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem;" onchange="applyFilters()">
+                    </div>
+                </div>
+                <div style="margin-top: 1rem; display: flex; gap: 0.75rem;">
+                    <button onclick="applyFilters()" style="padding: 0.75rem 1.5rem; background: var(--chery-blue); color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer;">
+                        <i class="fas fa-search"></i> Terapkan Filter
+                    </button>
+                    <button onclick="clearFilters()" style="padding: 0.75rem 1.5rem; background: #e2e8f0; color: var(--chery-dark); border: none; border-radius: 10px; font-weight: 600; cursor: pointer;">
+                        <i class="fas fa-times"></i> Reset Filter
                     </button>
                 </div>
             </div>
@@ -1452,6 +1503,7 @@
                             <th>Service</th>
                             <th>Keluhan</th>
                             <th>Phone</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -1529,6 +1581,16 @@
                     <label class="modal-label">Keluhan</label>
                     <textarea class="modal-input" id="editKeluhan" rows="2" style="resize: vertical;"></textarea>
                 </div>
+                <div>
+                    <label class="modal-label">Status</label>
+                    <select class="modal-input" id="editStatus" required style="padding: 0.75rem;">
+                        <option value="Successful">Successful</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Cancelled">Cancelled</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
                 <button type="submit" class="modal-btn">Simpan Perubahan</button>
             </form>
         </div>
@@ -1577,6 +1639,7 @@
         const db = getDatabase(app);
 
         let allBookings = [];
+        let filteredBookings = [];
         let currentSlide = 0;
         let isAdminLoggedIn = false;
         let editingBookingId = null;
@@ -1872,6 +1935,7 @@
             document.getElementById('editDate').value = booking.date || '';
             document.getElementById('editTime').value = booking.time || '';
             document.getElementById('editKeluhan').value = booking.Keluhan || '';
+            document.getElementById('editStatus').value = booking.status || 'Successful';
             
             document.getElementById('editModal').classList.add('show');
         };
@@ -1880,12 +1944,30 @@
             document.querySelectorAll('.hero, .facilities, .booking, .about, .contact').forEach(el => el.style.display = 'none');
             document.getElementById('adminPanel').classList.remove('show');
             document.getElementById('cekService').classList.add('show');
+            sessionStorage.setItem('currentPage', 'cekService');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
 
         window.hideServicePanel = function() {
             document.getElementById('cekService').classList.remove('show');
             document.querySelectorAll('.hero, .facilities, .booking, .about, .contact').forEach(el => el.style.display = 'block');
+            sessionStorage.removeItem('currentPage');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        window.goToHome = function() {
+            // Sembunyikan semua panel khusus
+            document.getElementById('cekService').classList.remove('show');
+            document.getElementById('adminPanel').classList.remove('show');
+            
+            // Tampilkan semua section utama
+            document.querySelectorAll('.hero, .facilities, .booking, .about, .contact').forEach(el => el.style.display = 'block');
+            
+            // Hapus state dari sessionStorage
+            sessionStorage.removeItem('currentPage');
+            
+            // Scroll ke top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         };
 
         window.searchBooking = async function() {
@@ -1912,71 +1994,221 @@
                     });
                 }
                 
-                serviceTableBody.innerHTML = '';
-                
-                if (bookings.length === 0) {
-                    serviceTable.style.display = 'none';
-                    noDataMessage.textContent = 'Tidak ada data booking dengan nomor plat tersebut';
-                    noDataMessage.style.display = 'block';
-                    return;
-                }
-                
-                serviceTable.style.display = 'table';
-                noDataMessage.style.display = 'none';
-                
-                bookings.forEach(booking => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${booking.date || ''}</td>
-                        <td>${booking.time || ''}</td>
-                        <td>${booking.name || ''}</td>
-                        <td>${booking.Plat_Nomor || ''}</td>
-                        <td><span style="background: #d1fae5; color: #065f46; padding: 0.25rem 0.75rem; border-radius: 20px; font-weight: 500;">${booking.status || 'Successful'}</span></td>
-                    `;
-                    serviceTableBody.appendChild(row);
-                });
+                displaySearchResults(bookings, serviceTableBody, serviceTable, noDataMessage);
             } catch (error) {
                 console.error("Error searching bookings:", error);
                 alert("Terjadi kesalahan saat mencari data booking");
             }
         };
 
+        window.refreshCekService = async function() {
+            const refreshBtn = event.target.closest('button');
+            const icon = refreshBtn.querySelector('i');
+            const searchPlat = document.getElementById('searchPlat').value.trim().toUpperCase();
+            
+            if (!searchPlat) {
+                alert('Mohon masukkan nomor plat terlebih dahulu');
+                return;
+            }
+            
+            // Tambahkan animasi rotasi
+            icon.style.animation = 'spin 1s linear infinite';
+            refreshBtn.disabled = true;
+            
+            try {
+                // Reload data dari Firebase
+                const snapshot = await get(child(ref(db), "bookings"));
+                const bookings = [];
+                
+                if (snapshot.exists()) {
+                    snapshot.forEach((childSnap) => {
+                        const b = childSnap.val();
+                        if (b.Plat_Nomor && b.Plat_Nomor.toUpperCase().includes(searchPlat)) {
+                            bookings.push(b);
+                        }
+                    });
+                }
+                
+                const serviceTableBody = document.getElementById('serviceTableBody');
+                const serviceTable = document.getElementById('serviceTable');
+                const noDataMessage = document.getElementById('noDataMessage');
+                
+                displaySearchResults(bookings, serviceTableBody, serviceTable, noDataMessage);
+                
+                // Hentikan animasi setelah 1 detik
+                setTimeout(() => {
+                    icon.style.animation = '';
+                    refreshBtn.disabled = false;
+                    alert('Data berhasil direfresh!');
+                }, 1000);
+            } catch (error) {
+                console.error("Error refreshing:", error);
+                icon.style.animation = '';
+                refreshBtn.disabled = false;
+                alert("Gagal memuat ulang data");
+            }
+        };
+
+        function displaySearchResults(bookings, serviceTableBody, serviceTable, noDataMessage) {
+            serviceTableBody.innerHTML = '';
+            
+            if (bookings.length === 0) {
+                serviceTable.style.display = 'none';
+                noDataMessage.textContent = 'Tidak ada data booking dengan nomor plat tersebut';
+                noDataMessage.style.display = 'block';
+                return;
+            }
+            
+            serviceTable.style.display = 'table';
+            noDataMessage.style.display = 'none';
+            
+            bookings.forEach(booking => {
+                const row = document.createElement('tr');
+                
+                // Tentukan class status untuk Cek Service
+                let statusClass = 'status-successful';
+                const status = booking.status || 'Successful';
+                
+                if (status === 'Pending') statusClass = 'status-pending';
+                else if (status === 'Cancelled') statusClass = 'status-cancelled';
+                else if (status === 'In Progress') statusClass = 'status-in-progress';
+                else if (status === 'Completed') statusClass = 'status-completed';
+                
+                row.innerHTML = `
+                    <td>${booking.date || ''}</td>
+                    <td>${booking.time || ''}</td>
+                    <td>${booking.name || ''}</td>
+                    <td>${booking.Plat_Nomor || ''}</td>
+                    <td><span class="status-badge ${statusClass}">${status}</span></td>
+                `;
+                serviceTableBody.appendChild(row);
+            });
+        }
+
         window.displayBookings = function() {
             onValue(ref(db, "bookings"), (snapshot) => {
-                const tbody = document.getElementById('bookingListBody');
-                tbody.innerHTML = "";
+                allBookings = [];
                 
-                if (!snapshot.exists()) {
-                    tbody.innerHTML = '<tr><td colspan="9" style="text-align: center; padding: 2rem;">No bookings found.</td></tr>';
-                    return;
+                if (snapshot.exists()) {
+                    snapshot.forEach((childSnap) => {
+                        allBookings.push({
+                            id: childSnap.key,
+                            ...childSnap.val()
+                        });
+                    });
                 }
-
-                snapshot.forEach((childSnap) => {
-                    const booking = childSnap.val();
-                    const id = childSnap.key;
-                    const row = document.createElement("tr");
-                    
-                    row.innerHTML = `
-                        <td>${booking.date || ''}</td>
-                        <td>${booking.time || ''}</td>
-                        <td>${booking.name || ''}</td>
-                        <td>${booking.model || ''}</td>
-                        <td>${booking.Plat_Nomor || ''}</td>
-                        <td>${booking.service || ''}</td>
-                        <td>${booking.Keluhan || "None"}</td>
-                        <td>${booking.phone || ''}</td>
-                        <td>
-                            <button onclick='editBooking("${id}", ${JSON.stringify(booking).replace(/'/g, "&apos;")})' class="action-btn edit-btn">
-                                <i class="fas fa-edit"></i> Edit
-                            </button>
-                            <button onclick="deleteBooking('${id}')" class="action-btn delete-btn">
-                                <i class="fas fa-trash"></i> Delete
-                            </button>
-                        </td>
-                    `;
-                    tbody.appendChild(row);
-                });
+                
+                // Apply filters if any
+                applyFilters();
             });
+        };
+
+        window.applyFilters = function() {
+            const searchText = document.getElementById('filterSearch')?.value.toLowerCase() || '';
+            const statusFilter = document.getElementById('filterStatus')?.value || '';
+            const dateFrom = document.getElementById('filterDateFrom')?.value || '';
+            const dateTo = document.getElementById('filterDateTo')?.value || '';
+            
+            filteredBookings = allBookings.filter(booking => {
+                // Filter by search text (name or plat nomor)
+                const matchSearch = !searchText || 
+                    (booking.name && booking.name.toLowerCase().includes(searchText)) ||
+                    (booking.Plat_Nomor && booking.Plat_Nomor.toLowerCase().includes(searchText));
+                
+                // Filter by status
+                const matchStatus = !statusFilter || 
+                    (booking.status || 'Successful') === statusFilter;
+                
+                // Filter by date range
+                const bookingDate = booking.date || '';
+                const matchDateFrom = !dateFrom || bookingDate >= dateFrom;
+                const matchDateTo = !dateTo || bookingDate <= dateTo;
+                
+                return matchSearch && matchStatus && matchDateFrom && matchDateTo;
+            });
+            
+            renderBookingsTable();
+        };
+
+        window.clearFilters = function() {
+            document.getElementById('filterSearch').value = '';
+            document.getElementById('filterStatus').value = '';
+            document.getElementById('filterDateFrom').value = '';
+            document.getElementById('filterDateTo').value = '';
+            
+            filteredBookings = [...allBookings];
+            renderBookingsTable();
+        };
+
+        function renderBookingsTable() {
+            const tbody = document.getElementById('bookingListBody');
+            tbody.innerHTML = "";
+            
+            const bookingsToDisplay = filteredBookings.length > 0 || 
+                document.getElementById('filterSearch')?.value || 
+                document.getElementById('filterStatus')?.value ||
+                document.getElementById('filterDateFrom')?.value ||
+                document.getElementById('filterDateTo')?.value
+                ? filteredBookings 
+                : allBookings;
+            
+            if (bookingsToDisplay.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="10" style="text-align: center; padding: 2rem;">Tidak ada data booking yang sesuai filter.</td></tr>';
+                return;
+            }
+
+            bookingsToDisplay.forEach((booking) => {
+                const row = document.createElement("tr");
+                
+                // Tentukan class status
+                let statusClass = 'status-successful';
+                const status = booking.status || 'Successful';
+                
+                if (status === 'Pending') statusClass = 'status-pending';
+                else if (status === 'Cancelled') statusClass = 'status-cancelled';
+                else if (status === 'In Progress') statusClass = 'status-in-progress';
+                else if (status === 'Completed') statusClass = 'status-completed';
+                
+                row.innerHTML = `
+                    <td>${booking.date || ''}</td>
+                    <td>${booking.time || ''}</td>
+                    <td>${booking.name || ''}</td>
+                    <td>${booking.model || ''}</td>
+                    <td>${booking.Plat_Nomor || ''}</td>
+                    <td>${booking.service || ''}</td>
+                    <td>${booking.Keluhan || "None"}</td>
+                    <td>${booking.phone || ''}</td>
+                    <td><span class="status-badge ${statusClass}">${status}</span></td>
+                    <td>
+                        <button onclick='editBooking("${booking.id}", ${JSON.stringify(booking).replace(/'/g, "&apos;")})' class="action-btn edit-btn">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button onclick="deleteBooking('${booking.id}')" class="action-btn delete-btn">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        window.refreshBookings = function() {
+            const refreshBtn = event.target.closest('button');
+            const icon = refreshBtn.querySelector('i');
+            
+            // Tambahkan animasi rotasi
+            icon.style.animation = 'spin 1s linear infinite';
+            refreshBtn.disabled = true;
+            
+            // Reload data dari Firebase
+            window.displayBookings();
+            
+            // Hentikan animasi setelah 1 detik
+            setTimeout(() => {
+                icon.style.animation = '';
+                refreshBtn.disabled = false;
+                alert('Data berhasil direfresh!');
+            }, 1000);
         };
 
         window.deleteBooking = async function(id) {
@@ -1997,34 +2229,147 @@
                     alert("No bookings to export.");
                     return;
                 }
-                const bookings = [];
-                snapshot.forEach((childSnap) => {
-                    const b = childSnap.val();
-                    bookings.push({
-                        Name: b.name || '',
-                        "Plat Nomor": b.Plat_Nomor || '',
-                        Phone: b.phone || '',
-                        Model: b.model || '',
-                        Service: b.service || '',
-                        Date: b.date || '',
-                        Time: b.time || '',
-                        Keluhan: b.Keluhan || ''
-                    });
-                });
-                const ws = XLSX.utils.json_to_sheet(bookings);
+                
+                // Use filtered bookings if filters are applied
+                const bookingsToExport = filteredBookings.length > 0 || 
+                    document.getElementById('filterSearch')?.value || 
+                    document.getElementById('filterStatus')?.value ||
+                    document.getElementById('filterDateFrom')?.value ||
+                    document.getElementById('filterDateTo')?.value
+                    ? filteredBookings 
+                    : allBookings;
+                
+                if (bookingsToExport.length === 0) {
+                    alert("Tidak ada data untuk diekspor.");
+                    return;
+                }
+                
+                const exportData = bookingsToExport.map(booking => ({
+                    'Name': booking.name || '',
+                    'Plat Nomor': booking.Plat_Nomor || '',
+                    'Phone': booking.phone || '',
+                    'Model': booking.model || '',
+                    'Service': booking.service || '',
+                    'Date': booking.date || '',
+                    'Time': booking.time || '',
+                    'Keluhan': booking.Keluhan || '',
+                    'Status': booking.status || 'Successful'
+                }));
+                
+                const ws = XLSX.utils.json_to_sheet(exportData);
                 const wb = XLSX.utils.book_new();
                 XLSX.utils.book_append_sheet(wb, ws, "Bookings");
                 XLSX.writeFile(wb, "bookings.xlsx");
+                
+                alert("Data berhasil diekspor ke Excel!");
             } catch (error) {
                 console.error("Export error:", error);
                 alert("Failed to export bookings.");
             }
         };
 
+        window.exportToGoogleSheets = async function() {
+            try {
+                // Tentukan data yang akan diekspor berdasarkan filter
+                let bookingsToExport = [];
+                
+                // Cek apakah ada filter yang aktif
+                const hasActiveFilter = 
+                    document.getElementById('filterSearch')?.value || 
+                    document.getElementById('filterStatus')?.value ||
+                    document.getElementById('filterDateFrom')?.value ||
+                    document.getElementById('filterDateTo')?.value;
+                
+                if (hasActiveFilter && filteredBookings.length >= 0) {
+                    bookingsToExport = filteredBookings;
+                } else {
+                    bookingsToExport = allBookings;
+                }
+                
+                if (bookingsToExport.length === 0) {
+                    alert("Tidak ada data untuk diekspor.\n\nPastikan ada data yang sesuai dengan filter Anda.");
+                    return;
+                }
+                
+                // Prepare data dengan format TSV (Tab Separated Values)
+                const headers = ['Date', 'Time', 'Name', 'Model', 'Plat Nomor', 'Service', 'Keluhan', 'Phone'];
+                const rows = [headers];
+                
+                bookingsToExport.forEach(booking => {
+                    rows.push([
+                        booking.date || '',
+                        booking.time || '',
+                        booking.name || '',
+                        booking.model || '',
+                        booking.Plat_Nomor || '',
+                        booking.service || '',
+                        booking.Keluhan || '',
+                        booking.phone || ''
+                    ]);
+                });
+                
+                // Convert to TSV (Tab-separated) untuk paste yang rapi
+                const tsvContent = rows.map(row => row.join('\t')).join('\n');
+                
+                // Copy to clipboard
+                try {
+                    await navigator.clipboard.writeText(tsvContent);
+                    
+                    // Open Google Sheets langsung
+                    window.open('https://sheets.google.com/create', '_blank');
+                    
+                    // Show success message
+                    const message = hasActiveFilter 
+                        ? `✓ Data filter berhasil disalin!\n\n📊 ${bookingsToExport.length} booking(s)\n🚀 Google Sheets dibuka otomatis\n\n📋 Langkah selanjutnya:\n1. Klik cell A1 di Google Sheets\n2. Tekan Ctrl+V (Windows) atau Cmd+V (Mac)\n3. Data akan tersusun rapi dalam kolom!\n4. Klik File > Save untuk menyimpan\n\n✨ Selesai! Data sudah ada di spreadsheet.`
+                        : `✓ Semua data berhasil disalin!\n\n📊 ${bookingsToExport.length} booking(s)\n🚀 Google Sheets dibuka otomatis\n\n📋 Langkah selanjutnya:\n1. Klik cell A1 di Google Sheets\n2. Tekan Ctrl+V (Windows) atau Cmd+V (Mac)\n3. Data akan tersusun rapi dalam kolom!\n4. Klik File > Save untuk menyimpan\n\n✨ Selesai! Data sudah ada di spreadsheet.`;
+                    
+                    setTimeout(() => {
+                        alert(message);
+                    }, 800);
+                    
+                } catch (clipboardError) {
+                    console.error("Clipboard error:", clipboardError);
+                    alert("Gagal menyalin data ke clipboard.\n\nPastikan browser Anda mengizinkan akses clipboard.\n\nSilakan coba lagi atau gunakan Export Excel sebagai alternatif.");
+                }
+                
+            } catch (error) {
+                console.error("Export to Google Sheets error:", error);
+                alert("Gagal mengekspor data. Silakan coba lagi.");
+            }
+        };
+
+        function exportAsExcelFallback(bookingsToExport, hasActiveFilter) {
+            const exportData = bookingsToExport.map(booking => ({
+                'Date': booking.date || '',
+                'Time': booking.time || '',
+                'Name': booking.name || '',
+                'Model': booking.model || '',
+                'Plat Nomor': booking.Plat_Nomor || '',
+                'Service': booking.service || '',
+                'Keluhan': booking.Keluhan || '',
+                'Phone': booking.phone || ''
+            }));
+            
+            const ws = XLSX.utils.json_to_sheet(exportData);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Bookings");
+            
+            let filename = "chery_bookings_" + new Date().toISOString().split('T')[0];
+            if (hasActiveFilter) {
+                filename += "_filtered";
+            }
+            filename += ".xlsx";
+            
+            XLSX.writeFile(wb, filename);
+            
+            alert("Data diekspor sebagai Excel file.\n\nAnda bisa upload file ini ke Google Sheets:\n1. Buka Google Sheets\n2. File > Import > Upload\n3. Pilih file Excel yang baru didownload");
+        }
+
         window.adminLogout = function() {
             isAdminLoggedIn = false;
             localStorage.removeItem('adminLoggedIn');
             localStorage.removeItem('adminLoginTime');
+            sessionStorage.removeItem('currentPage');
             document.querySelectorAll('.hero, .facilities, .booking, .about, .contact').forEach(el => el.style.display = 'block');
             document.getElementById('adminPanel').classList.remove('show');
             alert('Logout berhasil!');
@@ -2052,6 +2397,7 @@
             document.querySelectorAll('.hero, .facilities, .booking, .about, .contact').forEach(el => el.style.display = 'none');
             document.getElementById('cekService').classList.remove('show');
             document.getElementById('adminPanel').classList.add('show');
+            sessionStorage.setItem('currentPage', 'adminPanel');
             window.displayBookings();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -2090,7 +2436,7 @@
                 date: document.getElementById('editDate').value,
                 time: document.getElementById('editTime').value,
                 Keluhan: document.getElementById('editKeluhan').value.trim(),
-                status: 'Successful'
+                status: document.getElementById('editStatus').value
             };
 
             try {
@@ -2122,6 +2468,12 @@
             // Check if admin was logged in before
             if (checkAdminSession()) {
                 activateAdminPanel();
+            } else {
+                // Restore previous page state jika bukan admin
+                const currentPage = sessionStorage.getItem('currentPage');
+                if (currentPage === 'cekService') {
+                    showCekService();
+                }
             }
 
             // Custom dropdown interaktif untuk service
